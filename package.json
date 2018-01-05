@@ -1,0 +1,31 @@
+{
+  "name": "alexa-dev",
+  "version": "0.1.0",
+  "author": {
+    "name": "Michael Rosata",
+    "email": "michael.rosata@gmail.com"
+  },
+  "scripts": {
+    "test": "_mocha test/main.Spec.js -w -c",
+    "clean": "rm ./lambda.zip ; rm -rf ./lib",
+    "build": "npm run clean ; mkdir -p ./lib/src && npm run build:js && npm run build:zip",
+    "build:js": "babel src -d lib/src && babel index.js -o lib/index.js && babel config.js -o lib/config.js",
+    "build:zip": "npm run build:zip:js && npm run build:zip:deps",
+    "build:zip:js": "(cd lib && zip -r ../lambda.zip .)",
+    "build:zip:deps": "zip -rug lambda node_modules -x@exclude.lst"
+  },
+  "dependencies": {
+    "alexa-sdk": "^1.0.24",
+    "aws-sdk": "^2.176.0",
+    "ramda": "^0.25.0"
+  },
+  "description": "Alexa Skill Blueprint with Custom Conversation Testing",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "mocha": "^4.1.0"
+  }
+}

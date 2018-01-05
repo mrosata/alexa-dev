@@ -1,0 +1,2 @@
+CustomAlexaIntent hello there {thing}
+CustomAlexaIntent hello {thing}

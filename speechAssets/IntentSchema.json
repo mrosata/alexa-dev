@@ -1,0 +1,13 @@
+{
+  "intents": [
+      {
+      "intent": "CustomAlexaIntent",
+      "slots": [
+        {
+          "name": "thing",
+          "type": "AMAZON.STRING"
+        }
+      ]
+    }
+  ]
+}

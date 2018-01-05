@@ -1,0 +1,13 @@
+# Git Ignore
+
+node_modules
+.idea
+.vscode
+.sublime.workspace
+*.code-workspace
+*.zip
+*\~
+
+venv
+dist
+lib/
